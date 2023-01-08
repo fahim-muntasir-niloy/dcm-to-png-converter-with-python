@@ -8,9 +8,9 @@ cwd = os.getcwd()
 # function to read files one by one
 dcmFiles = []
 for dirpath,dirnames, filename in os.walk(cwd):
-    print("current path: ",dirpath)
-    print("directories: ",dirnames)
-    print("files: ",filename)
+    # print("current path: ",dirpath)
+    # print("directories: ",dirnames)
+    # print("files: ",filename)
     for fp in filename:
         ext = os.path.splitext(fp)[-1]
         if (ext == ".dcm"):
@@ -30,4 +30,4 @@ def dcm_to_jpg(file):
 
 for name in dcmFiles:
     image = dcm_to_jpg(name)
-    image.save(name+'.png')
+    image.save(str(dcmFiles.index(name)+1) +'.png')
